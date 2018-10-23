@@ -30,3 +30,24 @@ Project 1: Game Ideas for Proposal
 - a Single-Player puzzle game/mini-game that could expand to multiplayer.
 - a session last about 1 minute.
 - player controls a student with poor sleeping habits. He is constantly falling asleep.
+- He is sleeping during the middle of a lecture review for an important test.
+ (_Ok, to be honest, this is mostly an idea I just came up with a few minutes ago.
+ I am still trying to determine the core goal of the game.)
+ EDIT: I thought about it and the most engaging goal would be about keeping the student awake during the class.
+ - The student will steadedly get more and more drowsy. This is represented not just through the player sprite,
+ but through a giant bar on the left.
+ - The bar will decrease over time. If the bar empties, the student will fall asleep.
+ - The player's goal is to keep the student awake through 2 methods
+  - One method of waking the student up is through an event (either a key press or a click).
+    - When used, the sleep bar will increase by a set increment, staving off sleep for a bit longer.
+    - However, there is only a limited amount of these actions available. For the sake of example, the limit is 4.
+      - Every time the player uses an action, the amount of of the bar regained is lessened. The last action should wake the student for only a few seconds.
+  - Another method will be using limited use items, such as coffee, energy drinks, candy or
+    - These items are represented by icons on the bottom. These are onClick events that will increase the bar by a set amount.
+      - To keep things fair, the amount of items you get should be randomized. Perhaps through an array.
+  - The win condition is determined by a letter grade.
+  - This letter grade is determined by how long the player is able to stay awake in class.
+    - If the student falls asleep early, they may be penalized by earning a D or below.
+      - if student gets a D or below, you lose.
+    - If the student stays awake for the majority of class, he may get a C or above.
+    - You win if you get an A.
