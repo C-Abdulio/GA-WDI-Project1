@@ -15,6 +15,7 @@
 
 #window{
   display:flex;
+  /* overflow: hidden; */
   background-color: pink;
   /* overflow: hidden; */
   width:50vw;
@@ -22,23 +23,33 @@
 
 .object{
   position: absolute;
-  border: .5px dashed black;
+  border: 1px dashed black;
+}
+
+.button{
+  display:none;
+  align-items:center;
+  width: 200px;
+  height: 100px;
+  margin: 0 auto;
+  border-radius: 50px;
+  background-color: purple;
 }
 
 #player-Rev{
-  margin-left: -10em;
+  margin-left: -15em;
   background-color:red;
-  width:300px;
-  height:100px;
+  width:200px;
+  height:70px;
   display:block;
 }
 
 #objectsInSpace{
   display: flex;
-  justify-content: space-between;
-  flex-direction: column-reverse;
+  align-items: space-between;
+  flex-direction: column;
   border:1px solid blue;
-  margin-right: -10em;
+  margin-right: -5em;
 }
 
 #spaceRock{
@@ -49,15 +60,16 @@
 }
 
 #spacePipe{
-  width:100px;
+  width:50px;
   height: 500px;
-  transform: rotateX(45deg);
+  top: 20em;
+  transform: rotate(-15deg);
   background-color: silver;
 }
 
 #UFO{
-  width:200px;
-  height:300px;
+  width:300px;
+  height:200px;
   background-color:green;
-  transform:rotateX(13deg);
+  transform:rotate(13deg);
 }
