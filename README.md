@@ -1,5 +1,5 @@
 # GA-WID-Project1
-![](https://drive.google.com/open?id=1absjABynwnwKG8MHBgzaxet5G12emaKK)
+
 ## The project has yet to be determined. It is currently being chosen from an array of three ideas:
 
 ## 1) Saturday Morning Breakfast Warrior
@@ -107,4 +107,4 @@ FRAUDS ARE CONFIRMED!! And I decide on a new career as professional crash dummy.
 
  You can find more detail about all the games in the ProjectIdeas.txt file.
 
- Wireframes coming soon.
+ Wireframes in the project file
