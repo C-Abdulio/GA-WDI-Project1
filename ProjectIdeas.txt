@@ -50,4 +50,5 @@ Project 1: Game Ideas for Proposal
     - If the student falls asleep early, they may be penalized by earning a D or below.
       - if student gets a D or below, you lose.
     - If the student stays awake for the majority of class, he may get a C or above.
-    - You win if you get an A.
+      -At this point, the player will be prompted to play again
+    - You win the game completely if you get an A.

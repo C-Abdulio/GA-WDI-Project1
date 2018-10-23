@@ -51,6 +51,8 @@ FRAUDS ARE CONFIRMED!! And I decide on a new career as professional crash dummy.
 
 ## 2) RevRacers: Space Course
 **_A "FlappyBird" style arcade runner game_**
+
+![SpaceCourse](https://github.com/C-Abdulio/GA-WID-Project1/blob/master/WIREFRAME_SpaceCourse.png)
 - You are Rev Rock-It, an android with a rocket engine on his head.
 - players can move Rev in only 2 directions: up and down. This is controlled by 2 keys (either up or down arrows or other buttons).
 - players must guide Rev through an obstacle course in space, avoiding asteroids and space debree.
