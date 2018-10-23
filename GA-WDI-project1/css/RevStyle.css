@@ -46,10 +46,10 @@
 
 #objectsInSpace{
   display: flex;
-  align-items: space-between;
   flex-direction: column;
   border:1px solid blue;
   margin-right: -5em;
+  position:relative;
 }
 
 #spaceRock{
