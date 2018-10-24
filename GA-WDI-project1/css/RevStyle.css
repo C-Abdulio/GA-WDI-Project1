@@ -3,7 +3,6 @@
 }
 
 .parent{
-  height:100vh;
   border: 2px solid red;
   position:relative;
 }
@@ -14,11 +13,14 @@
 }
 
 #window{
-  display:flex;
+  display: flex;
+  /* width: 400px;
+  height: 600px; */
   /* overflow: hidden; */
-  background-color: pink;
+  background-color: yellow;
   /* overflow: hidden; */
-  width:50vw;
+
+
 }
 
 .object{
