@@ -9,13 +9,13 @@
 
 #board{
   display: flex;
-  width: 100vw;
+  width: 100rem;
 }
 
 #window{
   display: flex;
-  /* width: 400px;
-  height: 600px; */
+  width: 20rem;
+  height: 40rem;
   /* overflow: hidden; */
   background-color: yellow;
   /* overflow: hidden; */
@@ -44,6 +44,8 @@
   width:200px;
   height:70px;
   display:block;
+  background:url('../imgs/RevRockIt.png');
+  background-size: cover;
 }
 
 #collisionState{
@@ -62,6 +64,7 @@
 #spaceRock{
   width: 100px;
   height: 100px;
+  background:url('../imgs/asteroids.png');
   background-color: orange;
   margin-bottom: inherit;
 }
@@ -70,6 +73,7 @@
   width:50px;
   height: 500px;
   top: 20em;
+  background:url('../imgs/pipes.png');
   /* transform: rotate(-15deg); */
   background-color: silver;
 }
