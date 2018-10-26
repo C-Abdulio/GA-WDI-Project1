@@ -14,8 +14,13 @@ let revWidth = player.style.left + player.style.width;
 let revHeight = player.style.top + player.style.height;
 
 const rev = {
-  x: 0,
-  y: 0
+  x: 1,
+  y: 1
+}
+
+const walls = {
+  x: 4,
+  y: 6
 }
 
 
@@ -36,11 +41,12 @@ function playGame(){//function to start the game
     console.log('gemmu statto')//console.log for testing
     start.style.display = 'none';//eliminate start button
     //set the starting position of the player
+    // player.style.position = "relative";
     player.style.left = "420px";
     player.style.top = "250px";
     //set the starting position of the obsticles
     junk.style.left = junk + "2em";
-    // junk.style.width = "2em";
+    junk.style.width = "2em";
     UFO.style.left = "300px";
     UFO.style.top = "250px";
     asteroid.style.left = "200px";
@@ -112,6 +118,7 @@ function playGame(){//function to start the game
             break;
           default:
         }
+
         player.style.left = left + 'px';//this allows the use of the movement function
         player.style.top = top + 'px';
 
@@ -132,13 +139,13 @@ function playGame(){//function to start the game
         let pos = 0;
         let force = setInterval(spaceJunk, 1000);//for ever 1000ms, run this function...
         function spaceJunk(){
-          if (pos >= 900){//if all the objects reach the end of the window...
+          if (pos >= 1000){//if all the objects reach the end of the window...
             // debugger;
             clearInterval(force);//make them stop moving..
           } else {
             pos+=100;
             //makeAsteroid();
-            // junk.style.width = pos + "px";
+            junk.style.width = pos + "px";
             junk.style.right = pos + "px";
             console.log("workin");//console.logging to make sure it works
             }
@@ -150,28 +157,27 @@ function playGame(){//function to start the game
         }
     }
 
-      function displayGuard(x, y){//determines the boundaries of the display window
-        if (x <= 220 || x >= windWidth || y < windHeight || y > windHeight){// if Rev hits these position points in the display window
-        return true;
-        }
-        return false;
-      }
-
-
-    function moveTo(x, y){
-      if (displayGuard(x,y)){
-        console.log("Out of Bounds");
-        return false;
-      }
-      //  else if(watchOut(x,y)){
-      //    for(var i = 0; i < )
-      //   console.log("Ouch");
-      //   return false;
-      // }
-      else {
-        return true;
+    function displayGuard(x, y){//determines the boundaries of the display window
+      if (walls.x < 0 || walls.x > 4 || walls.y < 0 || walls.y > 6){// if Rev hits these position points in the display window
+      return true;
       }
     }
+
+
+  function moveTo(x, y){
+    if (displayGuard(x,y)){
+      console.log("Out of Bounds");
+      return false;
+    }
+    //  else if(watchOut(x,y)){
+    //    for(var i = 0; i < )
+    //   console.log("Ouch");
+    //   return false;
+    // }
+    else {
+      return true;
+    }
+  }
     // function moveRev(x, y){//the function that moves the element div
     //   player.style.top = (rev.y).toString() + 'px';//this moves Rev along the x axis at 100px
     //   player.style.left = (rev.x).toString() + 'px';//this moves Rev along the y axis at 100px
