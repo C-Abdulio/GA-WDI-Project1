@@ -39,13 +39,19 @@
 }
 
 #player-Rev{
-  margin-left: -15em;
+  margin-left: 10em;
   background-color:red;
   width:200px;
   height:70px;
+  padding-left: -50px;
   display:block;
-  background:url('../imgs/RevRockIt.png');
+  /* background:url('../imgs/RevRockIt.png'); */
   background-size: cover;
+}
+
+#player-Rev img{
+  width:200px;
+  height:100px;
 }
 
 #collisionState{
@@ -64,8 +70,8 @@
 #spaceRock{
   width: 100px;
   height: 100px;
-  background:url('../imgs/asteroids.png');
-  background-color: orange;
+  background-size:cover;
+  /* background-color: orange; */
   margin-bottom: inherit;
 }
 

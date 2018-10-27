@@ -23,6 +23,12 @@ const walls = {
   y: 6
 }
 
+const junkArray = [
+  {x:10, y:(Math.floor(Math.random() * 10) + 1), el:asteroid},
+  {x:10, y:(Math.floor(Math.random() * 10) + 1), el:asteroid},
+  {x:10, y:(Math.floor(Math.random() * 10) + 1), el:asteroid}
+
+]
 
 
 function playGame(){//function to start the game
@@ -137,9 +143,10 @@ function playGame(){//function to start the game
     function scrolling(){//This function is
         // debugger;
         let pos = 0;
+        junkArray.forEach(each => each.x -= 1 );
         let force = setInterval(spaceJunk, 1000);//for ever 1000ms, run this function...
         function spaceJunk(){
-          if (pos >= 1000){//if all the objects reach the end of the window...
+          if (pos >= 1000 && each.x < 0){//if all the objects reach the end of the window...
             // debugger;
             clearInterval(force);//make them stop moving..
           } else {
