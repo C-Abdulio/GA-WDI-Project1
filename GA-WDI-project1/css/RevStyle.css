@@ -39,11 +39,11 @@
 }
 
 #player-Rev{
-  margin-left: 10em;
+  /* margin-left: -15em; */
   background-color:red;
   width:200px;
   height:70px;
-  padding-left: -50px;
+  /* padding-left: -50px; */
   display:block;
   /* background:url('../imgs/RevRockIt.png'); */
   background-size: cover;
