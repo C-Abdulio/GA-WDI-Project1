@@ -122,11 +122,9 @@ function playGame(){//function to start the game
     function canMoveTo(x, y){
   if(displayGuard(x, y)){
     return false;
-    colAction(rev.x, rev.y);
   }
   else if (junkCheck(rev.x, rev.y)){
   return false;
-  colAction(rev.x, rev.y);
   }
   else{
     return true;
@@ -152,16 +150,17 @@ function displayGuard(x, y){//defines the borders of the display
      let force = setInterval(spaceJunk, 1500);//for ever 1000ms, run this function...
      function spaceJunk(){
       junkArray.forEach(each => {each.x -= 1;
-        if (pos >= 500 && each.x < 8){//if all the objects reach the end of the window...
+        if (pos >= 1200 && each.x < 8){//if all the objects reach the end of the window...
           // debugger;
           console.log("workin");
-          clearInterval(force);//make them stop moving..
+          junkCheck();
+          // clearInterval(force);//make them stop moving..
         }
           else {
           pos+=100;
           makeJunk();
           junk.style.width = pos + "px";
-          junk.style.right = pos + "px";
+          // junk.style.right = pos + "px";
           console.log("workin?");//console.logging to make sure it works
         }
       });
@@ -172,7 +171,8 @@ function displayGuard(x, y){//defines the borders of the display
   let rocks = document.createElement('img');
   rocks.id = 'spaceRock';
   rocks.className = 'object';
-  let random = junkArray[(Math.floor(Math.random() * junkArray.length) + 1)]
+  let random = junkArray[(Math.floor(Math.random() * junkArray.length) + 1)];
+  junk.appendChild(rocks);
 
  }
 
