@@ -45,13 +45,13 @@ function playGame(){//function to start the game
     player.style.display = "block";
     player.style.left = "420px";
     player.style.top = "700px";
+    revRockIt();
     //set the starting position of the obsticles
     junk.style.left = junk + "2em";
     junk.style.width = "2em";
     // UFO.style.left = "300px";
     // UFO.style.top = "250px";
     // asteroid.style.left = "200px";
-    revRockIt();
     makeJunk();
     scrolling();
   }
@@ -124,17 +124,17 @@ function playGame(){//function to start the game
     return false;
     colAction(rev.x, rev.y);
   }
-  // else if (junkCheck(rev.x, rev.y)){
-  // return false;
-  // colAction();
-  // }
+  else if (junkCheck(rev.x, rev.y)){
+  return false;
+  colAction(rev.x, rev.y);
+  }
   else{
     return true;
   }
 }
 
 function displayGuard(x, y){//defines the borders of the display
-   if ((x < 10 || x > 18 || y < 0 || y > 11)){
+   if ((x < 10 || x > 16 || y < 0 || y > 11)){
      return true;
    }
  }
@@ -145,10 +145,45 @@ function displayGuard(x, y){//defines the borders of the display
    }
  }
 
+ function scrolling(){//This function is
+     // debugger;
+     let pos = 0;
+     // junkArray.forEach(each => each.x -= 1 );
+     let force = setInterval(spaceJunk, 1500);//for ever 1000ms, run this function...
+     function spaceJunk(){
+      junkArray.forEach(each => {each.x -= 1;
+        if (pos >= 500 && each.x < 8){//if all the objects reach the end of the window...
+          // debugger;
+          console.log("workin");
+          clearInterval(force);//make them stop moving..
+        }
+          else {
+          pos+=100;
+          makeJunk();
+          junk.style.width = pos + "px";
+          junk.style.right = pos + "px";
+          console.log("workin?");//console.logging to make sure it works
+        }
+      });
+     }
+ }
+
+ function makeJunk(){
+  let rocks = document.createElement('img');
+  rocks.id = 'spaceRock';
+  rocks.className = 'object';
+  let random = junkArray[(Math.floor(Math.random() * junkArray.length) + 1)]
+
+ }
+
  function colAction(x,y){
-   player.style.backgroundColor = "green";
-   player.style.transform = "rotate(90deg)";
-   console.log('we have collision');
+   if ((x === rev.x) || (y === rev.y)){
+     return true;
+     player.id = "collissionState";
+     player.style.transform = "rotate(90deg)";
+     console.log('we have collision');
+    }
+    return false;
  }
 
 

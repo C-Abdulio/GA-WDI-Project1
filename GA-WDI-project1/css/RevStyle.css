@@ -14,7 +14,7 @@
 
 #window{
   display: flex;
-  width: 20rem;
+  width: 40rem;
   height: 40rem;
   /* overflow: hidden; */
   background-color: yellow;
@@ -64,7 +64,7 @@
   border:1px solid blue;
   margin-right: -9em;
   position:relative;
-  transition: 1000ms linear;
+  transition: 1500ms linear;
 }
 
 #spaceRock{
