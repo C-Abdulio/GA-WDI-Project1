@@ -121,6 +121,7 @@ function playGame(){//function to start the game
 
     function canMoveTo(x, y){
   if(displayGuard(x, y)){
+    colAction(x, y);
     return false;
   }
   else if (junkCheck(rev.x, rev.y)){
@@ -132,7 +133,7 @@ function playGame(){//function to start the game
 }
 
 function displayGuard(x, y){//defines the borders of the display
-   if ((x < 10 || x > 16 || y < 0 || y > 11)){
+   if ((x < 10 || x > 17 || y < 0 || y > 11)){
      return true;
    }
  }
@@ -177,12 +178,17 @@ function displayGuard(x, y){//defines the borders of the display
  }
 
  function colAction(x,y){
+   console.log('this is x ',x);
+   console.log('this is y ',y);
+   console.log('this is revX ',rev.x);
+   console.log('this is revY ',rev.y);
    if ((x === rev.x) || (y === rev.y)){
-     return true;
      player.id = "collissionState";
      player.style.transform = "rotate(90deg)";
      console.log('we have collision');
+      return true;
     }
+    revRockIt();
     return false;
  }
 
