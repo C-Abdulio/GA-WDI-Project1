@@ -10,22 +10,23 @@
 #board{
   display: flex;
   width: 100rem;
+  background-image: url('imgs/spaceBg.jpeg');
 }
 
 #window{
   display: flex;
   width: 40rem;
   height: 48rem;
-  /* overflow: hidden; */
-  background-color: yellow;
-  /* overflow: hidden; */
+  overflow: hidden;
+  /* background-color: yellow; */
+  background-image:url('imgs/jeremy-thomas-bg.jpg');
 
 
 }
 
 .object{
   position: absolute;
-  border: 1px dashed black;
+  /* border: 1px dashed black; */
 }
 
 .button{
@@ -55,6 +56,8 @@
 }
 
 #collisionState{
+  display: none;
+  background-image: url('../imgs/RevRocked.png');
   background-color: rgb(148, 213, 29) !important;
   width:200px;
   height:100px;
@@ -62,7 +65,7 @@
 
 #collisionState img{
   width:200px;
-  height:100px;
+  height:300px;
 }
 
 #objectsInSpace{
@@ -86,16 +89,16 @@
   width:50px;
   height: 500px;
   top: 20em;
-  background:url('../imgs/pipes.png');
+  /* background:url('../imgs/pipes.png'); */
   /* transform: rotate(-15deg); */
   background-size: cover;
-  background-color: silver;
+  /* background-color: silver; */
 }
 
 #UFO{
   width:300px;
   height:200px;
-  background-color:green;
+  /* background-color:green; */
   /* transform:rotate(13deg); */
 }
 

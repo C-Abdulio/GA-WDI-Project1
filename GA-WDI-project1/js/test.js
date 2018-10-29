@@ -1,5 +1,6 @@
 /* all the global constants that we will use throughout this game */
 const player = document.querySelector("#player-Rev");//RevRad, your robot racer
+const playerLose = document.querySelector('#collisionState');//your lose state
 const windowBoard = document.querySelector("#window");//the window element and the name of the major parent div
 const junk = document.getElementById('objectsInSpace');
 const ufo = document.getElementById('UFO');
@@ -37,6 +38,8 @@ function playGame(){//function to start the game
   player.style.display = "none";
   player.style.left = rev.x.toString() + "em" ;
   player.style.top = rev.y.toString() + 'em';
+  playerLose.style.left = rev.x.toString() + 'em';
+  playerLose.style.top = rev.y.toString() + 'em';
   start.addEventListener('click', evt => getReady());//click the button
 
 
@@ -207,8 +210,9 @@ function displayGuard(x, y){//defines the borders of the display
    console.log('this is revX ',rev.x);
    console.log('this is revY ',rev.y);
    if ((x === rev.x) || (y === rev.y)){
-     player.id = "collisionState";
-     player.style.transform = "rotate(90deg)";
+     player.style.display = 'none';
+     playerLose.style.display = "block"
+     // player.style.transform = "rotate(90deg)";
      console.log('we have collision');
      gameOver();
       return true;
@@ -218,8 +222,10 @@ function displayGuard(x, y){//defines the borders of the display
  }
 
 //  function revertAction(x, y){
-//    if(colAction(rev.x, rev.y)){
+//    if(colAction() === false){
 //    console.log('back to normal');
+//    playerLose.style.display = 'none';
+//    player.style.display = 'block';
 //    player.id = player;
 //     }
 // }
