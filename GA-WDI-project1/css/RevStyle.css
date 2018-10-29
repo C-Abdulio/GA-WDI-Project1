@@ -3,23 +3,25 @@
 }
 
 .parent{
-  border: 2px solid red;
+  /* border: 2px solid red; */
   position:relative;
 }
 
 #board{
   display: flex;
+  justify-content: center;
   width: 100rem;
-  background-image: url('imgs/spaceBg.jpeg');
+  background: url('../imgs/boardBG.jpg');
 }
 
 #window{
   display: flex;
   width: 40rem;
-  height: 48rem;
+  height: 49rem;
   overflow: hidden;
   /* background-color: yellow; */
-  background-image:url('imgs/jeremy-thomas-bg.jpg');
+  background:url('../imgs/spaceBg.jpeg')100%;
+  background-size:cover;
 
 
 }
@@ -29,19 +31,38 @@
   /* border: 1px dashed black; */
 }
 
-.button{
+#start{
   display:none;
   align-items:center;
+  margin: 0 auto;
+}
+
+#promo{
+  height:40%;
+  width:30%;
+  margin: 0 -20px;
+}
+
+.button{
+  /* display:none;
+  align-items:center; */
   width: 200px;
   height: 100px;
-  margin: 0 auto;
+  /* margin: 0 auto; */
+  border: solid purple 1px;
   border-radius: 50px;
+  background-color: black;
+  color: purple;
+}
+
+.button:hover{
   background-color: purple;
+  color: white;
 }
 
 #player-Rev{
   /* margin-left: -15em; */
-  background-color:red;
+  /* background-color:red; */
   width:200px;
   height:70px;
   /* padding-left: -50px; */
@@ -57,10 +78,10 @@
 
 #collisionState{
   display: none;
-  background-image: url('../imgs/RevRocked.png');
+  background: url("../imgs/RevRocked.png");
   background-color: rgb(148, 213, 29) !important;
   width:200px;
-  height:100px;
+  height:300px;
 }
 
 #collisionState img{
@@ -71,7 +92,7 @@
 #objectsInSpace{
   display: flex;
   flex-direction: column;
-  border:1px solid blue;
+  /* border:1px solid blue; */
   margin-right: -9em;
   position:relative;
   transition: 1500ms linear;

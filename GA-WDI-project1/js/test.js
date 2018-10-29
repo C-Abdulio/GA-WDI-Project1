@@ -30,7 +30,7 @@ function playGame(){//function to start the game
   // debugger;
   modal.style.display = "none";
   console.log('is this working?')//console.log for testing
-  let start = document.querySelector('.button');//select the start button
+  let start = document.querySelector('#start');//select the start button
   start.style.display = 'block';//display that sucka
   start.style.marginTop = '200px';// move it down 200px
   start.style.verticleAlign = "center";
@@ -38,8 +38,8 @@ function playGame(){//function to start the game
   player.style.display = "none";
   player.style.left = rev.x.toString() + "em" ;
   player.style.top = rev.y.toString() + 'em';
-  playerLose.style.left = rev.x.toString() + 'em';
-  playerLose.style.top = rev.y.toString() + 'em';
+  // playerLose.style.left = rev.x.toString() + 'em';
+  // playerLose.style.top = rev.y.toString() + 'em';
   start.addEventListener('click', evt => getReady());//click the button
 
 
@@ -51,6 +51,8 @@ function playGame(){//function to start the game
     player.style.display = "block";
     player.style.left = "420px";
     player.style.top = "700px";
+    // playerLose.style.left = "420px";
+    // playerLose.style.top ="700px"
     revRockIt();
     //set the starting position of the obsticles
     junk.style.left = junk + "2em";
@@ -186,7 +188,7 @@ function displayGuard(x, y){//defines the borders of the display
           pos+=100;
           makeJunk();
           junk.style.width = pos + "px";
-          // junk.style.right = pos + "px";
+          junk.style.right = pos + "px";
           console.log("workin?");//console.logging to make sure it works
         }
       });
@@ -195,10 +197,13 @@ function displayGuard(x, y){//defines the borders of the display
 
  function makeJunk(){
   let rocks = document.createElement('img');
+  let sticks = document.createElement('img');
   rocks.id = 'spaceRock';
   rocks.className = 'object';
+  sticks.id = "spacePipe";
   let random = junkArray[(Math.floor(Math.random() * junkArray.length))];
   junk.appendChild(rocks);
+  junk.appendChild(sticks);
 
  }
 
@@ -210,8 +215,7 @@ function displayGuard(x, y){//defines the borders of the display
    console.log('this is revX ',rev.x);
    console.log('this is revY ',rev.y);
    if ((x === rev.x) || (y === rev.y)){
-     player.style.display = 'none';
-     playerLose.style.display = "block"
+
      // player.style.transform = "rotate(90deg)";
      console.log('we have collision');
      gameOver();
