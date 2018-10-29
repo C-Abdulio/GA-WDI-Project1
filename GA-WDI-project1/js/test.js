@@ -146,22 +146,21 @@ function displayGuard(x, y){//defines the borders of the display
      return true;
    }
  }
-//this function is based on a video tutorial by Adam Khoury
+//this function is based on test formed by Mimi Klein
  function junkCheck(x, y){
    // if(junkArray.some(pOj => rev.x === pOj.x && rev.y === pOj.y)){
    //   return true;
    // }
-   let playerWidth, playerHeight, playerX, playerY;
-   let junkWidth, junkHeight, junkX, junkY;
+
    for (let i = 0; i < junkArray.length; i++){
-   playerWidth = player.offsetWidth;
-   playerHeight = player.offsetHeight;
-   playerX = rev.x;
-   playerY = rev.y;
-   junkWidth = junkArray[i].offsetWidth;
-   junkHeight = junkArray[i].offsetHeight;
-   junkX = junkArray[i].x;
-   junkY = junkArray[i].y;
+  var playerRight = player.getBoundingClientRect().right;
+   var playerLeft = player.getBoundingClientRect().left;
+   var playerTop = player.getBoundingClientRect().top;
+   var playerDown = player.getBoundingClientRect().bottom;
+   var enemyRight = junkArray[i].getBoundingClientRect().right;
+   var enemyLeft = junkArray[i].getBoundingClientRect().left;
+   var enemyDown = junkArray[i].getBoundingClientRect().bottom;
+   var enemyTop = junkArray[i].getBoundingClientRect().top;
    if ((playerWidth + playerX) > junkX && playerX < (junkX + junkWidth) && (playerY + playerHeight) > junkY && playerY < (junkY + junkHeight)){
      colAction(rev.x, rev.y);
      console.log('we have a hit');
@@ -201,6 +200,7 @@ function displayGuard(x, y){//defines the borders of the display
   rocks.id = 'spaceRock';
   rocks.className = 'object';
   sticks.id = "spacePipe";
+  sticks.className ='object';
   let random = junkArray[(Math.floor(Math.random() * junkArray.length))];
   junk.appendChild(rocks);
   junk.appendChild(sticks);
@@ -215,7 +215,8 @@ function displayGuard(x, y){//defines the borders of the display
    console.log('this is revX ',rev.x);
    console.log('this is revY ',rev.y);
    if ((x === rev.x) || (y === rev.y)){
-
+     player.id = "collisionState";
+     player.removeAttribute("#player-Rev");
      // player.style.transform = "rotate(90deg)";
      console.log('we have collision');
      gameOver();
