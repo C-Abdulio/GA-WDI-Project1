@@ -78,16 +78,16 @@
 
 #collisionState{
   display: none;
-  background: url("../imgs/RevRocked.png");
-  background-color: rgb(148, 213, 29) !important;
+  background: url("../imgs/RevRocked.png") 100% !important;
+  background-size:auto;
   width:200px;
   height:300px;
 }
 
-#collisionState img{
+/* #collisionState img{
   width:200px;
   height:300px;
-}
+} */
 
 #objectsInSpace{
   display: flex;
