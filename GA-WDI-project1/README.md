@@ -1,6 +1,8 @@
 # GA-WID-Project1
 
-## EDIT - 10/23/2018 - The project has been chosen and this readme file shall reflect that choice. 
+## EDIT - 10/28/2018 - The project has been unable to meet Minimal Viable Product. Idea cannot be executed without the need for external JS libraries like Canvas and extensive knowledge of coordinates based collision. Only option to pursue with needed tools would be outside of GA WDI course. So until then, the project will be suspended indefinitely while I work on other projects.
+
+## EDIT - 10/23/2018 - The project has been chosen and this readme file shall reflect that choice.
 
 # 2) RevRacers: Space Course
 **_A "FlappyBird" style arcade runner game_**
@@ -34,16 +36,21 @@
 - Map or objects do not scroll toward player. Player moves, standing still.
 - Gravity function messes up player control. Player cannot move up or does not head down.
 - score tally does not increase or score is not recorded.
-- NOTHING WORKS! EVERYTHING IS UNDEFINED!! And I hereby renounce any privilege to criticize any game developer if I cannot even make Tic Tac Toe or Flappy Bird.
+- NOTHING WORKS! EVERYTHING IS UNDEFINED!! And I hereby renounce any privilege to criticize any game developer if I cannot even make Tic Tac Toe or Flappy Bird. **EDIT - I guess I'm handing in my critic license.**
 
 # MINIMUM VIABLE PRODUCT:
 - Player can move.
 - Objects or map scrolls toward player.
 - Player can collide with static objects
-- Player can lose by collecting colliding with objects.
+- Player can lose by colliding with objects.
 - Player can reset game.
 
+# PRODUCT REFLECTION -
+###This ideas was chosen with the notion that having only limited movement on a fixed position with only a simple lose condition would make things considerably easier to create a minimal viable product. This is far from the truth, as movement based collision detection is an incredibly hard endavor to achieve without an extensive background in mathematics and logic based problems or an external JavaScript library. While initially driven the thrill of seeing my OC Rev RockIt fly around
+
 **The other ideas are here mostly for archival purposes**
+
+![Breakfast Warrior](https://github.com/C-Abdulio/GA-WDI-Projects/blob/master/GA-WDI-project1/imgs/WIREFRAME_BreakfastWarrior_Map1.png)
 **1) Saturday Morning Breakfast Warrior**
 **_A Zelda type action-adventure game in 3 acts_**
 - player controls The Breakfast Warrior, who can move in all 4 directions through the direction arrows.
@@ -90,6 +97,8 @@
 - Player can collide with static objects like rocks, enemies and items
 - Player can win by collecting cereal.
 
+_**PRODUCT REFLECTION**_
+_Of all the ideas that I worked on, this was the one I put the most effort into...though one cannot tell without proper wireframes_
 
 **3) WakeUp SleepyHead**
 **_A Puzzle game based on timing and perseverance...and caffeine_**
@@ -107,4 +116,4 @@
 
  You can find more detail about all the games in the ProjectIdeas.txt file.
 
- Wireframes in the project file
+ Wireframes in the project file.

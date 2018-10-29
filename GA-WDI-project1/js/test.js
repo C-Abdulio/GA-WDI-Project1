@@ -5,6 +5,8 @@ const junk = document.getElementById('objectsInSpace');
 const ufo = document.getElementById('UFO');
 const asteroid = document.getElementById('spaceRock');
 const pipe = document.getElementById('spacePipe');
+let modal = document.querySelector('#gameOver');
+let tryAgain = document.querySelector('#tryAgain')
 
 const rev = {
   x: 15,
@@ -25,6 +27,7 @@ const junkArray = [
 playGame()//run the function to start the game
 function playGame(){//function to start the game
   // debugger;
+  modal.style.display = "none";
   console.log('is this working?')//console.log for testing
   let start = document.querySelector('.button');//select the start button
   start.style.display = 'block';//display that sucka
@@ -49,10 +52,11 @@ function playGame(){//function to start the game
     //set the starting position of the obsticles
     junk.style.left = junk + "2em";
     junk.style.width = "2em";
-    // UFO.style.left = "300px";
-    // UFO.style.top = "250px";
-    // asteroid.style.left = "200px";
+    UFO.style.left = "300px";
+    UFO.style.top = "250px";
+    asteroid.style.left = "200px";
     makeJunk();
+    junkCheck();
     scrolling();
   }
   //function that makes the player move
@@ -133,15 +137,33 @@ function playGame(){//function to start the game
 }
 
 function displayGuard(x, y){//defines the borders of the display
-   if ((x < 10 || x > 17 || y < 0 || y > 11)){
+   if ((x < 7 || x > 19 || y < 0 || y > 11)){
      return true;
    }
  }
-
+//this function is based on a video tutorial by Adam Khoury
  function junkCheck(x, y){
-   if(junkArray.some(pOj => rev.x === pOj.x && rev.y === pOj.y)){
-     return true;
+   // if(junkArray.some(pOj => rev.x === pOj.x && rev.y === pOj.y)){
+   //   return true;
+   // }
+   let playerWidth, playerHeight, playerX, playerY;
+   let junkWidth, junkHeight, junkX, junkY;
+   for (let i = 0; i < junkArray.length; i++){
+   playerWidth = player.offsetWidth;
+   playerHeight = player.offsetHeight;
+   playerX = rev.x;
+   playerY = rev.y;
+   junkWidth = junkArray[i].offsetWidth;
+   junkHeight = junkArray[i].offsetHeight;
+   junkX = junkArray[i].x;
+   junkY = junkArray[i].y;
+   if ((playerWidth + playerX) > junkX && playerX < (junkX + junkWidth) && (playerY + playerHeight) > junkY && playerY < (junkY + junkHeight)){
+     colAction(rev.x, rev.y);
+     console.log('we have a hit');
+     return true
    }
+ }
+   return false;
  }
 
  function scrolling(){//This function is
@@ -172,10 +194,12 @@ function displayGuard(x, y){//defines the borders of the display
   let rocks = document.createElement('img');
   rocks.id = 'spaceRock';
   rocks.className = 'object';
-  let random = junkArray[(Math.floor(Math.random() * junkArray.length) + 1)];
+  let random = junkArray[(Math.floor(Math.random() * junkArray.length))];
   junk.appendChild(rocks);
 
  }
+
+
 
  function colAction(x,y){
    console.log('this is x ',x);
@@ -183,14 +207,31 @@ function displayGuard(x, y){//defines the borders of the display
    console.log('this is revX ',rev.x);
    console.log('this is revY ',rev.y);
    if ((x === rev.x) || (y === rev.y)){
-     player.id = "collissionState";
+     player.id = "collisionState";
      player.style.transform = "rotate(90deg)";
      console.log('we have collision');
+     gameOver();
       return true;
     }
-    revRockIt();
+    // revertAction();
     return false;
  }
 
+//  function revertAction(x, y){
+//    if(colAction(rev.x, rev.y)){
+//    console.log('back to normal');
+//    player.id = player;
+//     }
+// }
+
+function gameOver(x,y){
+  if(colAction(x,y)){
+    // debugger;
+    modal.style.display = "block";
+    console.log('game over');
+    tryAgain.addEventListener('click', evt => playGame());
+    return true;
+  }
+}
 
 }
