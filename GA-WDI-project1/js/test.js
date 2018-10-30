@@ -20,9 +20,9 @@ const walls = {
 }
 
 const junkArray = [
-  {x:10, y:(Math.floor(Math.random() * 10) + 1), el:asteroid},
-  {x:10, y:(Math.floor(Math.random() * 10) + 1), el:asteroid},
-  {x:10, y:(Math.floor(Math.random() * 10) + 1), el:asteroid}
+  {x:10, y:(Math.floor(Math.random() * 10) + 1) },
+  {x:10, y:(Math.floor(Math.random() * 10) + 1)},
+  {x:10, y:(Math.floor(Math.random() * 10) + 1)}
 
 ]
 playGame()//run the function to start the game
@@ -130,7 +130,7 @@ function playGame(){//function to start the game
 
     function canMoveTo(x, y){
   if(displayGuard(x, y)){
-    colAction(x, y);
+    colAction(rev.x, rev.y);
     return false;
   }
   else if (junkCheck(rev.x, rev.y)){
@@ -156,8 +156,8 @@ function displayGuard(x, y){//defines the borders of the display
    for (let i = 0; i < junkArray.length; i++){
    playerWidth = player.offsetWidth;
    playerHeight = player.offsetHeight;
-   playerX = rev.x;
-   playerY = rev.y;
+   playerX = player.x;
+   playerY = player.y;
    junkWidth = junkArray[i].offsetWidth;
    junkHeight = junkArray[i].offsetHeight;
    junkX = junkArray[i].x;
@@ -175,18 +175,18 @@ function displayGuard(x, y){//defines the borders of the display
      // debugger;
      let pos = 0;
      // junkArray.forEach(each => each.x -= 1 );
-     let force = setInterval(spaceJunk, 1500);//for ever 1000ms, run this function...
+     let force = setInterval(spaceJunk, 50);//for ever 1000ms, run this function...
      function spaceJunk(){
       junkArray.forEach(each => {each.x -= 1;
         if (pos >= 1200 && each.x < 8){//if all the objects reach the end of the window...
           // debugger;
           console.log("workin");
           junkCheck();
-          // clearInterval(force);//make them stop moving..
+          clearInterval(force);//make them stop moving..
         }
           else {
-          pos+=100;
-          makeJunk();
+          pos+=5;
+          setTimeout(makeJunk, 10000);
           junk.style.width = pos + "px";
           junk.style.right = pos + "px";
           console.log("workin?");//console.logging to make sure it works
@@ -200,8 +200,14 @@ function displayGuard(x, y){//defines the borders of the display
   let sticks = document.createElement('img');
   rocks.id = 'spaceRock';
   rocks.className = 'object';
+  rocks.src = "imgs/asteroids.png"
   sticks.id = "spacePipe";
+  sticks.src = "imgs/pipes.png"
   let random = junkArray[(Math.floor(Math.random() * junkArray.length))];
+  rocks.style.left = (random.x * 50) + 'px';
+  rocks.style.top = (random.y * 50) + 'px';
+  sticks.style.left = (random.x * 50) + 'px';
+  sticks.style.top = (random.y * 50) + 'px';
   junk.appendChild(rocks);
   junk.appendChild(sticks);
 
@@ -218,7 +224,7 @@ function displayGuard(x, y){//defines the borders of the display
 
      // player.style.transform = "rotate(90deg)";
      console.log('we have collision');
-     gameOver();
+     // gameOver();
       return true;
     }
     // revertAction();
