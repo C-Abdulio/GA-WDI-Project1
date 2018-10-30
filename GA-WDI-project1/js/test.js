@@ -9,6 +9,7 @@ const pipe = document.getElementById('spacePipe');
 let modal = document.querySelector('#gameOver');
 let tryAgain = document.querySelector('#tryAgain')
 
+
 const rev = {
   x: 15,
   y: 4
@@ -20,9 +21,9 @@ const walls = {
 }
 
 const junkArray = [
-  {x:10, y:(Math.floor(Math.random() * 10) + 1) },
-  {x:10, y:(Math.floor(Math.random() * 10) + 1)},
-  {x:10, y:(Math.floor(Math.random() * 10) + 1)}
+  {x:10, y:(Math.floor(Math.random() * 11) + 1) },
+  {x:10, y:(Math.floor(Math.random() * 11) + 1)},
+  {x:10, y:(Math.floor(Math.random() * 11) + 1)}
 
 ]
 playGame()//run the function to start the game
@@ -147,7 +148,7 @@ function displayGuard(x, y){//defines the borders of the display
    }
  }
 //this function is based on a video tutorial by Adam Khoury
- function junkCheck(x, y){
+ function junkCheck(x,y){
    // if(junkArray.some(pOj => rev.x === pOj.x && rev.y === pOj.y)){
    //   return true;
    // }
@@ -155,14 +156,15 @@ function displayGuard(x, y){//defines the borders of the display
    let junkWidth, junkHeight, junkX, junkY;
    for (let i = 0; i < junkArray.length; i++){
    playerWidth = player.offsetWidth;
+   debugger;
    playerHeight = player.offsetHeight;
-   playerX = player.x;
-   playerY = player.y;
+   playerLeft = player.offsetLeft;
+   playerTop = player.offsetTop;
    junkWidth = junkArray[i].offsetWidth;
    junkHeight = junkArray[i].offsetHeight;
-   junkX = junkArray[i].x;
-   junkY = junkArray[i].y;
-   if ((playerWidth + playerX) > junkX && playerX < (junkX + junkWidth) && (playerY + playerHeight) > junkY && playerY < (junkY + junkHeight)){
+   junkLeft = junkArray[i].offsetLeft;
+   junkTop = junkArray[i].offsetTop;
+   if ((playerWidth + playerLeft) > junkLeft && playerLeft < (junkLeft + junkWidth) && (playerTop + playerHeight) > junkTop && playerTop < (junkTop + junkHeight)){
      colAction(rev.x, rev.y);
      console.log('we have a hit');
      return true
