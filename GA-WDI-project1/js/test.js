@@ -21,9 +21,9 @@ const walls = {
 }
 
 const junkArray = [
-  {x:10, y:(Math.floor(Math.random() * 11) + 1) },
-  {x:10, y:(Math.floor(Math.random() * 11) + 1)},
-  {x:10, y:(Math.floor(Math.random() * 11) + 1)}
+  {x:10, y:(Math.floor(Math.random() * 11) + 1), el: asteroid},
+  {x:10, y:(Math.floor(Math.random() * 11) + 1), el: ufo},
+  {x:10, y:(Math.floor(Math.random() * 11) + 1), el: pipe}
 
 ]
 playGame()//run the function to start the game
@@ -49,9 +49,10 @@ function playGame(){//function to start the game
     console.log('gemmu statto')//console.log for testing
     start.style.display = 'none';//eliminate start button
     //set the starting position of the player
+    // debugger;
     player.style.display = "block";
-    player.style.left = "420px";
-    player.style.top = "700px";
+    player.style.left = "800px";
+    player.style.top = "10em";
     // playerLose.style.left = "420px";
     // playerLose.style.top ="700px"
     revRockIt();
@@ -156,11 +157,10 @@ function displayGuard(x, y){//defines the borders of the display
    let junkWidth, junkHeight, junkX, junkY;
    for (let i = 0; i < junkArray.length; i++){
    playerWidth = player.offsetWidth;
-   debugger;
    playerHeight = player.offsetHeight;
    playerLeft = player.offsetLeft;
    playerTop = player.offsetTop;
-   junkWidth = junkArray[i].offsetWidth;
+   Width = junkArray[i].offsetWidth;
    junkHeight = junkArray[i].offsetHeight;
    junkLeft = junkArray[i].offsetLeft;
    junkTop = junkArray[i].offsetTop;
@@ -177,18 +177,18 @@ function displayGuard(x, y){//defines the borders of the display
      // debugger;
      let pos = 0;
      // junkArray.forEach(each => each.x -= 1 );
-     let force = setInterval(spaceJunk, 50);//for ever 1000ms, run this function...
+     let force = setInterval(spaceJunk, 100);//for ever 1000ms, run this function...
      function spaceJunk(){
       junkArray.forEach(each => {each.x -= 1;
-        if (pos >= 1200 && each.x < 8){//if all the objects reach the end of the window...
+        if (pos >= 1000 && each.x < 8){//if all the objects reach the end of the window...
           // debugger;
           console.log("workin");
           junkCheck();
-          clearInterval(force);//make them stop moving..
+          // clearInterval(force);//make them stop moving..
         }
           else {
-          pos+=5;
-          setTimeout(makeJunk, 10000);
+          pos+=10;
+          setTimeout(makeJunk, 100);
           junk.style.width = pos + "px";
           junk.style.right = pos + "px";
           console.log("workin?");//console.logging to make sure it works
@@ -200,18 +200,23 @@ function displayGuard(x, y){//defines the borders of the display
  function makeJunk(){
   let rocks = document.createElement('img');
   let sticks = document.createElement('img');
-  rocks.id = 'spaceRock';
-  rocks.className = 'object';
+  let ships = document.createElement('img');
+  rocks.setAttribute = asteroid;
   rocks.src = "imgs/asteroids.png"
-  sticks.id = "spacePipe";
-  sticks.src = "imgs/pipes.png"
+  sticks.setAttribute = pipe;
+  sticks.src = "imgs/pipes.png";
+  ships.setAttribute = ufo;
+  ships.src = "imgs/UFO.png";
   let random = junkArray[(Math.floor(Math.random() * junkArray.length))];
   rocks.style.left = (random.x * 50) + 'px';
-  rocks.style.top = (random.y * 50) + 'px';
-  sticks.style.left = (random.x * 50) + 'px';
-  sticks.style.top = (random.y * 50) + 'px';
+  rocks.style.top = (random.y * 30) + 'px';
+  sticks.style.left = (random.x * 10) + 'px';
+  sticks.style.top = (random.y * 70) + 'px';
+  ships.style.left = (random.x * 20) + 'px';
+  ships.style.top = (random.y * 10) + 'px';
   junk.appendChild(rocks);
   junk.appendChild(sticks);
+  junk.appendChild(ships)
 
  }
 
